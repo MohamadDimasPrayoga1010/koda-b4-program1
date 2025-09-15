@@ -84,7 +84,6 @@ DESCISION1@{shape: diam, label: "Tambah Lagi?"}
 
 
 DECISION2@{shape: diam, label: "Apakah ada task?"}
-kosong2@{shape: rect, label: "Task Masih Kosong"}
 DAFTARTASK2@{shape: lean-r, label: "Daftar Task"}
 KEMBALI2@{shape: lean-r, label: "klik 0 untuk kembali"}
 
