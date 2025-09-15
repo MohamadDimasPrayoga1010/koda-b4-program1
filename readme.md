@@ -44,7 +44,7 @@ Masukkan Title baru : Contoh 2
 Masukkan Description baru : Test 123
 Apakah task selesai? (y/n): y
 
-Task "Belajar Express.js" berhasil diupdate!
+Task "Contoh 2" berhasil diupdate!
 
 
 ### 4. Menghapus Task
