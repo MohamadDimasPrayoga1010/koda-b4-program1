@@ -1,58 +1,144 @@
 # Aplikasi ToDoList
-sebuah aplikasi untuk manajemen tugas, dimana user dapat membuat list, melihat list yang sudah dibuat dan juga dapat menghapus list yang sudah dibuat
+Pengguna bisa menambahkan, melihat, mengedit, menghapus, dan menandai task sebagai selesai.
 
-### Fitur
-1. addTask :
+## Fitur Utama
+- **Add Task** → Menambahkan task baru (title & description).
+- **Show Task** → Melihat semua task, dikelompokkan berdasarkan tanggal & waktu.
+- **Edit Task** → Mengubah title, description, atau menandai task selesai.
+- **Delete Task** → Menghapus task berdasarkan nomor.
+- **Mark as Done** → Task bisa diberi status `Done` atau `Pending`.
+- **Exit** → Keluar dari aplikasi.
 
-menambahkan task baru dengan title dan description, setiap task disimpan dengan tanggal dan waktu
+## Contoh Penggunaan
 
-2. showTask : 
+### 1. Menambahkan Task
+======== Add Task =========
 
-menampilkan semua task task yang sudah dibuat, task di kelompokan berdasarkan tanggal pembuatan
+Masukkan Title: Contoh 1
+Masukkan Description: Membuat aplikasi To-Do List
 
-3. deleteTask :
+Task "Contoh 1" berhasil ditambahkan
+Tekan enter untuk kembali
 
-menghapus task berdasarkan no yang dipilih
+### 2. Menampilkan Task
+======== Show Task =========
 
-### Contoh Penggunaan
-========== To Do List ==========
-1. Tambah Tugas
-2. Lihat Daftar Tugas
-3. Hapus Tugas
-4. Keluar 
+Tanggal: 15/09/2025
 
-Pilih Menu :
- klik 1 untuk membuat task baru
+Title: Contoh 1
+Description: Membuat aplikasi To-Do List\
+Waktu: 10.30.25\
+Status: Pending
 
- Masukan Title : Task 1
+### 3. Mengedit Task
+======= Edit Task ========
 
-Masukan Descripsi : Desc
+Title: Contoh 1
+Description: Membuat aplikasi To-Do List
+Date: 15/09/2025
+Time: 10.30.25
+Status: Pending
 
-dimana user bisa memasukan title dan descripsi
+Masukkan nomor task yang ingin diedit: 1
+Masukkan Title baru : Contoh 2
+Masukkan Description baru : Test 123
+Apakah task selesai? (y/n): y
 
-ketika sudah lalu tekan enter.
+Task "Belajar Express.js" berhasil diupdate!
 
-jika user ingin melihat task yang baru saja dilihat  user memilih input 2 
 
-Pilih Menu : 2
+### 4. Menghapus Task
+======== Delete Task =========
 
-Tanggal: 15/9/2025
-1. Title: Task 1
+Title: Contoh 2
+Description: Test 123
+Date: 15/09/2025
+Time: 10.30.25
+Status: Done
 
- Description: Desc
+Masukkan nomor task yang ingin dihapus: 1
+Task "Contoh 2" berhasil dihapus!
 
-waktu: 15.03.38
 
-klik 0 untuk kembali setelah melihat task
+### 5. Keluar
+======= TERIMA KASIH ======
 
-ketika sudah kembali user dapat masukan input angka 3 
-=============== Hapus Task ===============
+## Flowchart
+```    mermaid
+flowchart TD
 
-1. Title: Task 1
-   Description: Desc
-   Date: 15/9/2025
-   Time: 15.03.38
+START@{shape: circ, label: "Start"}
+STOP@{shape: dbl-circ, label: "Stop"}
 
-Masukkan nomor task yang ingin dihapus:
+INPUT@{shape: diam, label: "input"}
 
-disini user dapat menghapus sesuai input yang user mau
+1@{shape: lean-r, label: "Buat Task"}
+2@{shape: lean-r, label: "Lihat Task"}
+3@{shape: lean-r, label: "Edit Task"}
+4@{shape: lean-r, label: "Hapus Task"}
+5@{shape: lean-r, label: "Keluar"}
+
+TITLE@{shape: lean-r, label: "Masukan Title"}
+DESC@{shape: lean-r, label: "Masukan Description"}
+DESCISION1@{shape: diam, label: "Tambah Lagi?"}
+
+
+DECISION2@{shape: diam, label: "Apakah ada task?"}
+kosong2@{shape: rect, label: "Task Masih Kosong"}
+DAFTARTASK2@{shape: lean-r, label: "Daftar Task"}
+KEMBALI2@{shape: lean-r, label: "klik 0 untuk kembali"}
+
+DECISION3@{shape: diam, label: "Apakah ada task?"}
+DAFTARTASK3@{shape: lean-r, label: "Daftar Task"}
+DECISIONLANJUT@{shape: diam, label: "Lanjut Mengedit?"}
+PILIHTASK3@{shape: lean-r, label: "Input Task"}
+EDITTASK@{shape: lean-r, label: "Ubah Title"}
+EDITTASKDESC@{shape: lean-r, label: "Ubah Deskription"}
+EDITTASKSTAT@{shape: lean-r, label: "Ubah Status"}
+
+DECISION4@{shape: diam, label: "Apakah ada task?"}
+PILIHTASK4@{shape: lean-r, label: "Input Task"}
+
+START-->INPUT
+
+INPUT--1-->1
+INPUT--2-->2
+INPUT--3-->3
+INPUT--4-->4
+INPUT--5-->5
+
+5-->STOP
+
+1-->TITLE
+TITLE-->DESC
+DESC-->DESCISION1
+DESCISION1--Y-->TITLE
+DESCISION1--N-->INPUT
+
+2-->DECISION2
+DECISION2--True-->DAFTARTASK2
+DECISION2--False-->INPUT
+DAFTARTASK2-->KEMBALI2
+KEMBALI2-->INPUT
+
+3-->DECISION3
+DECISION3--True-->DAFTARTASK3
+DECISION3--False-->INPUT
+DAFTARTASK3-->DECISIONLANJUT
+DECISIONLANJUT--False-->INPUT
+DECISIONLANJUT--True-->PILIHTASK3
+PILIHTASK3-->EDITTASK
+EDITTASK-->EDITTASKDESC
+EDITTASKDESC-->EDITTASKSTAT
+EDITTASKSTAT-->INPUT
+
+
+4-->DECISION4
+DECISION4--False-->INPUT
+DECISION4--True-->PILIHTASK4
+PILIHTASK4-->INPUT
+
+
+
+
+```
