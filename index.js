@@ -2,13 +2,15 @@ import { addTask } from "./lib/addTask.js";
 import { exit, question } from "./lib/question.js";
 import { showTask } from "./lib/showTask.js";
 import { deleteTask } from "./lib/deleteTask.js";
+import { editTask } from "./lib/editTask.js";
 
 export async function toDoList() {
   console.log("========== To Do List ==========");
-  console.log("1. Tambah Tugas");
-  console.log("2. Lihat Daftar Tugas");
-  console.log("3. Hapus Tugas");
-  console.log("4. Keluar");
+  console.log("1. Tambah Task");
+  console.log("2. Lihat Daftar Task"); 
+  console.log("3. Edit Task");
+  console.log("4. Hapus Task");
+  console.log("5. Keluar");
 
   let input = await question("Pilih Menu : ");
   input = parseInt(input);
@@ -21,10 +23,13 @@ export async function toDoList() {
       await showTask();
       break;
     case 3:
-      deleteTask();
+      editTask()
       break;
     case 4:
-        console.log("============== Terima Kasih ==============");
+      deleteTask();
+      break;
+    case 5:
+      console.log("============== Terima Kasih ==============");
       await exit();
       break;
     default:
